@@ -164,6 +164,7 @@ def _loglikelihoods(observation_matrices, observation_offsets,
                               observation_matrix.T))
                 + observation_covariance
             )
+            observation=observation.filled()
             loglikelihoods[t] = log_multivariate_normal_density(
                 observation[np.newaxis, :],
                 predicted_observation_mean[np.newaxis, :],
